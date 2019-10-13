@@ -5,11 +5,15 @@
     <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                {{ $user->name }}'s Profile
+                <p class="text-center">
+                    {{ $user->name }}'s Profile
+                </p>
             </div>
 
             <div class="panel-body">
-                <img src="{{ Storage::url($user->avatar) }}" alt="{{$user->name}}" height="70px" width="70px" style="border-radius:50%">
+                <center>
+                    <img src="{{ Storage::url($user->avatar) }}" alt="{{$user->name}}" height="140px" width="140px" style="border-radius:50%">
+                </center>
             </div>
         </div>
     </div>
