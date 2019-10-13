@@ -78,5 +78,16 @@
             @yield('content')
         </main>
     </div>
+
+    <script>
+        @if(Session::has('success'))
+            new Noty({
+                type: 'success',
+                layout: 'top',
+                text: '{{ Session::get('success') }}'
+            }).show();
+        @endif
+    </script>
+
 </body>
 </html>
