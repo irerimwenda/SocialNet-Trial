@@ -14,8 +14,14 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('update-profile') }}" method="POST">
+                    <form action="{{ route('update-profile') }}" method="POST" enctype="multipart/form-data">
                         @csrf
+
+                        <div class="form-group">
+                            <label for="avatar">Upload Avatar</label>
+                            <input type="file" class="form-control" name="avatar" accept="image/*">
+                        </div>
+
                         <div class="form-group">
                             <label for="location">Location</label>
                             <input type="text" class="form-control" name="location" value="{{ $info->location }}" required>
