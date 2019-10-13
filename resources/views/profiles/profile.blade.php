@@ -15,10 +15,30 @@
                     <img src="{{ Storage::url($user->avatar) }}" alt="{{$user->name}}" height="140px" width="140px" style="border-radius:50%">
                 </center>
 
+                <br/>
+
+                <p class="text-center">
+                    {{ $user->profile->location }}
+                </p>
+
                 <p class="text-center">
                     @if(Auth::id() == $user->id)
                         <a href="{{ route('edit-profile') }}" class="btn btn-sm btn-info">Edit Profile</a>
                     @endif()
+                </p>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <p class="text-center">
+                    About Me
+                </p>
+            </div>
+            <div class="panel-body">
+                <p class="text-center">
+                    {{ $user->profile->about }}
                 </p>
             </div>
         </div>
