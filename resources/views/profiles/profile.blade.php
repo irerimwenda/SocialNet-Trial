@@ -29,6 +29,16 @@
             </div>
         </div>
 
+        <br/>
+
+        <div class="card">
+            <div class="card-body">
+                <friend-component
+                :profile_user_id="{{ $user->id }}">
+                </friend-component>
+            </div>
+        </div>
+
         <br>
 
         <div class="card">

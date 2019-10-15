@@ -47,6 +47,10 @@ Route::get('/check', function() {
     return \App\User::find(2)->has_pending_friend_request_from(1);
 });
 
+Route::get('/check_relationship_status/{id}', function($id) {
+    return \App\User::find($id);
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
