@@ -1940,9 +1940,9 @@ __webpack_require__.r(__webpack_exports__);
         //alert('new notification')
         new noty__WEBPACK_IMPORTED_MODULE_0___default.a({
           type: 'success',
-          layout: 'bottomLeft',
+          layout: 'topRight',
           text: notification.name + notification.message
-        }); //console.log(notification)
+        }).show(); //console.log(notification)
 
         document.getElementById("noty_audio").play();
       });

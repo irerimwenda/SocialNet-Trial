@@ -20,9 +20,9 @@ export default {
                     //alert('new notification')
                     new Noty({
                         type: 'success',
-                        layout: 'bottomLeft',
+                        layout: 'topRight',
                         text: notification.name + notification.message
-                    })
+                    }).show();
                     //console.log(notification)
                     document.getElementById("noty_audio").play()
                 })
