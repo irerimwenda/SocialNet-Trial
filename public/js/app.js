@@ -1919,6 +1919,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
+/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(noty__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1926,6 +1928,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.listen();
@@ -1934,8 +1937,14 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     listen: function listen() {
       Echo["private"]('App.User.' + this.id).notification(function (notification) {
-        alert('new notification');
-        console.log(notification);
+        //alert('new notification')
+        new noty__WEBPACK_IMPORTED_MODULE_0___default.a({
+          type: 'success',
+          layout: 'bottomLeft',
+          text: notification.name + notification.message
+        }); //console.log(notification)
+
+        document.getElementById("noty_audio").play();
       });
     }
   }

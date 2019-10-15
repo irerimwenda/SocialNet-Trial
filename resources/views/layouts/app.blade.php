@@ -85,6 +85,12 @@
             <notification-component v-bind:id="{{Auth::id()}}"></notification-component>
             @endif
 
+            <audio id="noty_audio">
+                <source src="{{ asset('audio/notify.mp3') }}">
+                <source src="{{ asset('audio/notify.ogg') }}">
+                <source src="{{ asset('audio/notify.wav') }}">
+            </audio>
+
         </main>
     </div>
 

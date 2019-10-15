@@ -6,6 +6,8 @@
 
 
 <script>
+import Noty from 'noty';
+
 export default {
     mounted() {
         this.listen()
@@ -15,8 +17,14 @@ export default {
         listen() {
             Echo.private('App.User.' + this.id)
                 .notification((notification) => {
-                    alert('new notification')
-                    console.log(notification)
+                    //alert('new notification')
+                    new Noty({
+                        type: 'success',
+                        layout: 'bottomLeft',
+                        text: notification.name + notification.message
+                    })
+                    //console.log(notification)
+                    document.getElementById("noty_audio").play()
                 })
         }
     }
