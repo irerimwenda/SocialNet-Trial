@@ -1874,6 +1874,27 @@ __webpack_require__.r(__webpack_exports__);
       status: '',
       loading: true
     };
+  },
+  methods: {
+    addFriend: function addFriend() {
+      var _this2 = this;
+
+      this.loading = true;
+      axios.get('/add-friend/' + this.profile_user_id).then(function (response) {
+        //console.log(response);
+        if (response.data == 1) _this2.status = 'waiting';
+        _this2.loading = false;
+      })["catch"]();
+    },
+    acceptFriend: function acceptFriend() {
+      var _this3 = this;
+
+      this.loading = true;
+      axios.get('/accept-friend/' + this.profile_user_id).then(function (response) {
+        if (response.body == 1) _this3.status = 'friends';
+        _this3.loading = false;
+      })["catch"]();
+    }
   }
 });
 
@@ -40313,15 +40334,25 @@ var render = function() {
         !_vm.loading
           ? _c("p", { staticClass: "text-center" }, [
               _vm.status == 0
-                ? _c("button", { staticClass: "btn btn-success btn-sm" }, [
-                    _vm._v("Add Friend")
-                  ])
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success btn-sm",
+                      on: { click: _vm.addFriend }
+                    },
+                    [_vm._v("Add Friend")]
+                  )
                 : _vm._e(),
               _vm._v(" "),
               _vm.status == "pending"
-                ? _c("button", { staticClass: "btn btn-success btn-sm" }, [
-                    _vm._v("Accept Friend")
-                  ])
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success btn-sm",
+                      on: { click: _vm.acceptFriend }
+                    },
+                    [_vm._v("Accept Friend")]
+                  )
                 : _vm._e(),
               _vm._v(" "),
               _vm.status == "waiting"

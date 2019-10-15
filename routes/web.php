@@ -74,4 +74,12 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'FriendsController@check'
     ])->name('check');
 
+    Route::get('/add-friend/{id}', [
+        'uses' => 'FriendsController@addFriend'
+    ])->name('add-friend');
+
+    Route::get('/accept-friend/{id}', [
+        'uses' => 'FriendsController@acceptFriend'
+    ])->name('accept-friend');
+
 });

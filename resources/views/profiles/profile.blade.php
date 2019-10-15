@@ -29,6 +29,7 @@
             </div>
         </div>
 
+        @if(Auth::id() !== $user->id)
         <br/>
 
         <div class="card">
@@ -38,6 +39,8 @@
                 </friend-component>
             </div>
         </div>
+
+        @endif
 
         <br>
 

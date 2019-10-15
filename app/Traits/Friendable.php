@@ -18,7 +18,7 @@ trait Friendable
             return 0;
         }
 
-        if($this_>is_friends_with($user_requested_id) === 1)
+        if($this->is_friends_with($user_requested_id) === 1)
         {
             return "already friends";
         }

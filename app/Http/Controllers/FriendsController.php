@@ -19,15 +19,27 @@ class FriendsController extends Controller
 
         if(Auth::user()->has_pending_friend_request_from($id))
         {
-            return ["satus" => "pending"];
+            return ["status" => "pending"];
         }
 
         if(Auth::user()->has_pending_friend_request_sent_to($id))
         {
-            return ["satus" => "waiting"];
+            return ["status" => "waiting"];
         }
 
         return ["status" => 0];
         
+    }
+
+    //Add Friend
+    public function addFriend($id) {
+        //Send e-mails, notifications, broadasting...
+        return Auth::user()->add_friend($id);
+    }
+
+    //Accept Friend
+    public function acceptFriend($id) {
+        //send emails, notification
+        return Auth::user()->accept_friend($id);
     }
 }
