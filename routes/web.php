@@ -19,7 +19,7 @@ Route::get('/', function () {
     return Auth::user()->hello();
 }); */
 
-Route::get('/add', function () {
+/* Route::get('/add', function () {
     return \App\User::first()->add_friend(2);
 });
 
@@ -29,6 +29,22 @@ Route::get('/accept', function () {
 
 Route::get('/friends', function () {
     return \App\User::find(4)->friends();
+});
+
+Route::get('/pending_friends', function () {
+    return \App\User::find(4)->pending_friend_requests();
+});
+
+Route::get('/ids', function () {
+    return \App\User::find(4)->friends_ids();
+}); 
+
+Route::get('/is_friends', function () {
+    return \App\User::find(4)->is_friends_with(1);
+});  */
+
+Route::get('/check', function() {
+    return \App\User::find(2)->has_pending_friend_request_from(1);
 });
 
 Auth::routes();
