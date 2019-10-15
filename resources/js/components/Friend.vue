@@ -44,6 +44,11 @@
                     //console.log(response);
                     if(response.data == 1)
                         this.status = 'waiting'
+                        new Noty({
+                            type: 'success',
+                            layout: 'bottomLeft',
+                            text: 'Friend request sent.'
+                        })
                         this.loading = false
                 })
                 .catch();
@@ -54,6 +59,11 @@
                 .then((response) => {
                     if(response.body == 1)
                     this.status = 'friends'
+                    new Noty({
+                            type: 'success',
+                            layout: 'bottomLeft',
+                            text: 'You are friends.'
+                        })
                     this.loading = false
                 })
                 .catch();

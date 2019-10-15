@@ -1883,6 +1883,11 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/add-friend/' + this.profile_user_id).then(function (response) {
         //console.log(response);
         if (response.data == 1) _this2.status = 'waiting';
+        new Noty({
+          type: 'success',
+          layout: 'bottomLeft',
+          text: 'Friend request sent.'
+        });
         _this2.loading = false;
       })["catch"]();
     },
@@ -1892,6 +1897,11 @@ __webpack_require__.r(__webpack_exports__);
       this.loading = true;
       axios.get('/accept-friend/' + this.profile_user_id).then(function (response) {
         if (response.body == 1) _this3.status = 'friends';
+        new Noty({
+          type: 'success',
+          layout: 'bottomLeft',
+          text: 'You are friends.'
+        });
         _this3.loading = false;
       })["catch"]();
     }
