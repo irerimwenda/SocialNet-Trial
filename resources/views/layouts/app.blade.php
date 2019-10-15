@@ -15,6 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -51,6 +52,9 @@
                                 </li>
                             @endif
                         @else
+                        <li class="nav-item dropdown">
+                            <a class="nav-link"><i class="fa fa-bell"></i></a>
+                        </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -76,6 +80,11 @@
 
         <main class="py-4">
             @yield('content')
+
+            @if(Auth::check())
+            <notification-component v-bind:id="{{Auth::id()}}"></notification-component>
+            @endif
+
         </main>
     </div>
 
