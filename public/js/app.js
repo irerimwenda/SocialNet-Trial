@@ -1848,14 +1848,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
+    var _this = this;
+
     //console.log('Component mounted.')
     axios.get('/check_relationship_status/' + this.profile_user_id).then(function (response) {
-      console.log(response);
+      //console.log(response);
+      _this.status = response.data.status;
+      _this.loading = false;
     })["catch"]();
   },
-  props: ['profile_user_id']
+  props: ['profile_user_id'],
+  data: function data() {
+    return {
+      status: '',
+      loading: true
+    };
+  }
 });
 
 /***/ }),
@@ -40282,20 +40301,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" })
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _vm.loading
+          ? _c("p", { staticClass: "text-center" }, [
+              _vm._v("\n                Loading...\n            ")
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        !_vm.loading
+          ? _c("p", { staticClass: "text-center" }, [
+              _vm.status == 0
+                ? _c("button", { staticClass: "btn btn-success btn-sm" }, [
+                    _vm._v("Add Friend")
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.status == "pending"
+                ? _c("button", { staticClass: "btn btn-success btn-sm" }, [
+                    _vm._v("Accept Friend")
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.status == "waiting"
+                ? _c("span", { staticClass: "text-info" }, [
+                    _vm._v("Waiting for response")
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.status == "friends"
+                ? _c("span", { staticClass: "text-success" }, [
+                    _vm._v("Friends")
+                  ])
+                : _vm._e()
+            ])
+          : _vm._e()
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
