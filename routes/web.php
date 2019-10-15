@@ -47,9 +47,9 @@ Route::get('/check', function() {
     return \App\User::find(2)->has_pending_friend_request_from(1);
 });
 
-Route::get('/check_relationship_status/{id}', function($id) {
+/* Route::get('/check_relationship_status/{id}', function($id) {
     return \App\User::find($id);
-});
+}); */
 
 Auth::routes();
 
@@ -69,5 +69,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/profile/update/profile', [
         'uses' => 'ProfileController@update'
     ])->name('update-profile'); 
+
+    Route::get('/check_relationship_status/{id}', [
+        'uses' => 'FriendsController@check'
+    ])->name('check');
 
 });

@@ -23,7 +23,7 @@ trait Friendable
             return "already friends";
         }
 
-        if($this->has_pending_frined_request_sent_to($user_requested_id) === 1 )
+        if($this->has_pending_friend_request_sent_to($user_requested_id) === 1 )
         {
             return "already sent a friend request";
         }
@@ -138,7 +138,7 @@ trait Friendable
     public function pending_friend_requests_sent() {
         $users = array();
 
-        $friendship = Friends::where('status', 0)
+        $friendships = Friends::where('status', 0)
                             ->where('requester', $this->id)
                             ->get();
 
@@ -167,7 +167,7 @@ trait Friendable
         }
     }
 
-    public function has_pending_frined_request_sent_to($user_id)
+    public function has_pending_friend_request_sent_to($user_id)
     {
         if(in_array($user_id, $this->pending_friend_requests_sent_ids()))
         {
