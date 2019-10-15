@@ -19,6 +19,18 @@ Route::get('/', function () {
     return Auth::user()->hello();
 }); */
 
+Route::get('/add', function () {
+    return \App\User::first()->add_friend(2);
+});
+
+Route::get('/accept', function () {
+    return \App\User::find(2)->accept_friend(1);
+}); 
+
+Route::get('/friends', function () {
+    return \App\User::find(4)->friends();
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
