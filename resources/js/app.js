@@ -22,6 +22,8 @@ window.Vue = require('vue');
 Vue.component('friend-component', require('./components/Friend.vue').default);
 Vue.component('notification-component', require('./components/Notifications.vue').default);
 
+import { store } from './store'
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -30,4 +32,5 @@ Vue.component('notification-component', require('./components/Notifications.vue'
 
 const app = new Vue({
     el: '#app',
+    store
 });
