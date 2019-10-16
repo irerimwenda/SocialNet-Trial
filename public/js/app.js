@@ -50493,7 +50493,7 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("a", [
-            _c("i", { staticClass: "fa fa-thumbs-up pl-3" }),
+            _c("i", { staticClass: "fa fa-tumbs-up pl-3" }),
             _vm._v(" 1")
           ])
         ])
@@ -50689,8 +50689,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("li", [
-    _c("a", { attrs: { href: "/notifications" } }, [
-      _vm._v("\n        | Unread notifications\n        "),
+    _c("a", { staticClass: "nav-link", attrs: { href: "/notifications" } }, [
+      _c("i", { staticClass: "fa fa-bell" }),
+      _vm._v(" "),
       _c("span", { staticClass: "badge badge-secondary" }, [
         _vm._v(_vm._s(_vm.all_notifications_count))
       ])

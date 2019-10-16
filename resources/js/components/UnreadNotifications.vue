@@ -1,8 +1,8 @@
 <template>
 
     <li>
-        <a href="/notifications">
-            | Unread notifications
+        <a class="nav-link" href="/notifications">
+            <i class="fa fa-bell"></i>
             <span class="badge badge-secondary">{{all_notifications_count}}</span>
         </a>
     </li>

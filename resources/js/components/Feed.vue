@@ -21,7 +21,7 @@
                                             <div class="col-12">
                                                 <a><i class="fa fa-heart-o"></i> 1</a>
                                                 <a><i class="fa fa-comment-o pl-3"></i> 1</a>
-                                                <a><i class="fa fa-thumbs-up pl-3"></i> 1</a>
+                                                <a><i class="fa fa-tumbs-up pl-3"></i> 1</a>
                                             </div>
                                         </div>
                                     </div>
