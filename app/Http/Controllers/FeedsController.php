@@ -13,8 +13,10 @@ class FeedsController extends Controller
     //live feeds
     public function feed() {
         $friends = Auth::user()->friends();
+        $posts = Post::where('user_id', Auth::id())->get();
 
         $feed = array();
+        $myposts = array();
 
         foreach($friends as $friend):
 
@@ -24,6 +26,11 @@ class FeedsController extends Controller
 
         endforeach;
 
-        return $feed;
+        foreach($posts as $post):
+            array_push($myposts, $post);
+        endforeach;
+
+        //return $feed;
+        return array_merge($feed, $myposts);
     }
 }

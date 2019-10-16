@@ -15,6 +15,22 @@
                                     <!-- post -->
                                     <span class="username pb-0">{{post.user.name}}</span>
                                     <p class="feed-p pt-0">{{post.content}}</p>
+
+                                    <div class="interact">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <a><i class="fa fa-heart-o"></i> 1</a>
+                                                <a><i class="fa fa-comment-o pl-3"></i> 1</a>
+                                                <a><i class="fa fa-thumbs-up pl-3"></i> 1</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="likes pt-2">
+                                        <img :src="post.user.avatar" alt="" class="like-avatars">
+                                        <img :src="post.user.avatar" alt="" class="like-avatars">
+                                        <img :src="post.user.avatar" alt="" class="like-avatars">
+                                    </div>
+                                    <hr>
                                 </div>
 
                                 <div class="col-md-2">
@@ -22,7 +38,7 @@
                                     <span>{{post.created_at}}</span>
                                 </div>
 
-                                <hr class="hr-line">                          
+                                <hr>                          
                             </div>
                         </div>
                     </div>

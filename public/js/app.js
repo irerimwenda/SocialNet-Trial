@@ -1874,6 +1874,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getFeed();
@@ -50422,14 +50438,35 @@ var render = function() {
                     _vm._v(" "),
                     _c("p", { staticClass: "feed-p pt-0" }, [
                       _vm._v(_vm._s(post.content))
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(0, true),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "likes pt-2" }, [
+                      _c("img", {
+                        staticClass: "like-avatars",
+                        attrs: { src: post.user.avatar, alt: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "like-avatars",
+                        attrs: { src: post.user.avatar, alt: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "like-avatars",
+                        attrs: { src: post.user.avatar, alt: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("hr")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-2" }, [
                     _c("span", [_vm._v(_vm._s(post.created_at))])
                   ]),
                   _vm._v(" "),
-                  _c("hr", { staticClass: "hr-line" })
+                  _c("hr")
                 ])
               }),
               0
@@ -50440,7 +50477,30 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "interact" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c("a", [_c("i", { staticClass: "fa fa-heart-o" }), _vm._v(" 1")]),
+          _vm._v(" "),
+          _c("a", [
+            _c("i", { staticClass: "fa fa-comment-o pl-3" }),
+            _vm._v(" 1")
+          ]),
+          _vm._v(" "),
+          _c("a", [
+            _c("i", { staticClass: "fa fa-thumbs-up pl-3" }),
+            _vm._v(" 1")
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
