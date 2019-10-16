@@ -2018,7 +2018,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {},
-  props: ['id']
+  props: ['id'],
+  computed: {
+    post: function post() {
+      var _this = this;
+
+      return this.$store.state.posts.find(function (post) {
+        return post.id === _this.id;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -50590,22 +50599,19 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "likes pt-2" }, [
-      _c("img", {
-        staticClass: "like-avatars",
-        attrs: { src: _vm.post.user.avatar, alt: "" }
+    _c(
+      "div",
+      { staticClass: "likes pt-2" },
+      _vm._l(_vm.post.likes, function(like) {
+        return _c("div", { key: like.id, staticClass: "row" }, [
+          _c("img", {
+            staticClass: "like-avatars",
+            attrs: { src: _vm.post.user.avatar, alt: "" }
+          })
+        ])
       }),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "like-avatars",
-        attrs: { src: _vm.post.user.avatar, alt: "" }
-      }),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "like-avatars",
-        attrs: { src: _vm.post.user.avatar, alt: "" }
-      })
-    ])
+      0
+    )
   ])
 }
 var staticRenderFns = [

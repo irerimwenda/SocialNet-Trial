@@ -10,9 +10,9 @@
             </div>
         </div>
         <div class="likes pt-2">
-            <img :src="post.user.avatar" alt="" class="like-avatars">
-            <img :src="post.user.avatar" alt="" class="like-avatars">
-            <img :src="post.user.avatar" alt="" class="like-avatars">
+            <div class="row" v-for="like in post.likes" :key="like.id">
+                 <img :src="post.user.avatar" alt="" class="like-avatars">
+            </div>
         </div>
     </div>
 </template>
@@ -23,5 +23,12 @@ export default {
 
     },
     props: ['id'],
+    computed: {
+        post() {
+            return this.$store.state.posts.find((post) => {
+                return post.id === this.id
+            })
+        }
+    }
 }
 </script>
