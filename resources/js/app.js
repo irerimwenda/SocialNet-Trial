@@ -19,6 +19,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
+Vue.component('init-component', require('./components/Init.vue').default);
 Vue.component('friend-component', require('./components/Friend.vue').default);
 Vue.component('notification-component', require('./components/Notifications.vue').default);
 Vue.component('unread-notification-component', require('./components/UnreadNotifications.vue').default);

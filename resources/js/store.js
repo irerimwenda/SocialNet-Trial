@@ -7,7 +7,8 @@ export const store = new Vuex.Store({
     state: {
         //data from our application
         notifications: [],
-        posts: []
+        posts: [],
+        auth_user: {}
     },
     getters: {
         //mthods/functions that help us return data from our state
@@ -28,6 +29,9 @@ export const store = new Vuex.Store({
         },
         add_post(state, post) {
             state.posts.push(post)
+        },
+        auth_user_data(state, user) {
+            state.auth_user = user
         }
     },
     actions: {

@@ -98,4 +98,8 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'FeedsController@feed'
     ])->name('live-feed ');
 
+    Route::get('/get-auth-user-data', function() {
+        return Auth::user();
+    });
+
 });
