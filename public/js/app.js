@@ -63713,8 +63713,13 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
-  state: {
-    auth: false
+  state: {//data from our application
+  },
+  getters: {//help us return data from our state
+  },
+  mutations: {//help/(only thing) that will change state of our application
+  },
+  actions: {//call mutations (we can call many mutations at a time)
   }
 });
 

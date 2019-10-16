@@ -5,6 +5,15 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
     state: {
-        auth: false
+        //data from our application
+    },
+    getters: {
+        //help us return data from our state
+    },
+    mutations: {
+        //help/(only thing) that will change state of our application
+    },
+    actions: {
+        //call mutations (we can call many mutations at a time)
     }
 })
