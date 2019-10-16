@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    //eager loading ~ associate user with the post
+    public $with = ['user'];
+
     protected $fillable = ['content', 'user_id'];
 
     //If we do not pass user_id as a fillable

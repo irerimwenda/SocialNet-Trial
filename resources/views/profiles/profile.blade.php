@@ -12,7 +12,8 @@
 
             <div class="card-body">
                 <center>
-                    <img src="{{ Storage::url($user->avatar) }}" alt="{{$user->name}}" height="140px" width="140px" style="border-radius:50%">
+                    {{-- <img src="{{ Storage::url($user->avatar) }}" alt="{{$user->name}}" height="140px" width="140px" style="border-radius:50%"> --}}
+                    <img src="{{ $user->avatar }}" alt="{{$user->name}}" height="140px" width="140px" style="border-radius:50%">
                 </center>
 
                 <br/>

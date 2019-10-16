@@ -7,6 +7,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Storage;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -46,5 +48,10 @@ class User extends Authenticatable
 
     public function posts() {
         return $this->hasMany('App\Post');
+    }
+
+    //accessors
+    public function getAvatarAttribute($avatar) {
+        return asset(Storage::url($avatar)); 
     }
 }
