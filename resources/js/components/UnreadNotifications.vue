@@ -1,7 +1,7 @@
 <template>
 
     <li>
-        <a href="">
+        <a href="/notifications">
             | Unread notifications
             <span class="badge badge-secondary">{{all_notifications_count}}</span>
         </a>

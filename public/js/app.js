@@ -50357,7 +50357,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("li", [
-    _c("a", { attrs: { href: "" } }, [
+    _c("a", { attrs: { href: "/notifications" } }, [
       _vm._v("\n        | Unread notifications\n        "),
       _c("span", { staticClass: "badge badge-secondary" }, [
         _vm._v(_vm._s(_vm.all_notifications_count))
