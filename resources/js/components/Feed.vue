@@ -3,14 +3,27 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card">
-                    <div class="card-header text-center">
-                        Lil Breezy
-                    </div>
-
                     <div class="card-body">
-                        <p class="text-center">
-                            This is a post
-                        </p>
+                        <div class="col-md-12">
+                            <div class="row" v-for="post in posts" :key="post.id">
+                                <div class="col-md-1">
+                                    <!--image -->
+                                </div>
+
+                                <div class="col-md-9">
+                                    <!-- post -->
+                                    <h6 class="username">{{post.user.name}}</h6>
+                                    <p>{{post.content}}</p>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <!-- time -->
+
+                                </div>
+
+                                <hr class="hr-line">                          
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -33,6 +46,11 @@ export default {
                     this.$store.commit('add_post', post)
                 });
             })
+        }
+    },
+    computed: {
+        posts() {
+            return this.$store.getters.all_posts
         }
     }
 }

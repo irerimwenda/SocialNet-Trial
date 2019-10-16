@@ -1860,6 +1860,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getFeed();
@@ -1873,6 +1886,11 @@ __webpack_require__.r(__webpack_exports__);
           _this.$store.commit('add_post', post);
         });
       });
+    }
+  },
+  computed: {
+    posts: function posts() {
+      return this.$store.getters.all_posts;
     }
   }
 });
@@ -50379,34 +50397,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container mt-2" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-lg-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header text-center" }, [
-              _vm._v("\n                    Lil Breezy\n                ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("p", { staticClass: "text-center" }, [
-                _vm._v(
-                  "\n                        This is a post\n                    "
-                )
-              ])
-            ])
+  return _c("div", { staticClass: "container mt-2" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-lg-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c(
+              "div",
+              { staticClass: "col-md-12" },
+              _vm._l(_vm.posts, function(post) {
+                return _c("div", { key: post.id, staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-1" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-9" }, [
+                    _c("h6", { staticClass: "username" }, [
+                      _vm._v(_vm._s(post.user.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(post.content))])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-2" }),
+                  _vm._v(" "),
+                  _c("hr", { staticClass: "hr-line" })
+                ])
+              }),
+              0
+            )
           ])
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -64254,6 +64278,9 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     },
     all_notifications_count: function all_notifications_count(state) {
       return state.notifications.length;
+    },
+    all_posts: function all_posts(state) {
+      return state.posts;
     }
   },
   mutations: {

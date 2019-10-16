@@ -17,6 +17,9 @@ export const store = new Vuex.Store({
         all_notifications_count(state) {
             return state.notifications.length
         }
+        ,all_posts(state) {
+            return state.posts
+        }
     },
     mutations: {
         //help/(only thing) that will change state of our application
