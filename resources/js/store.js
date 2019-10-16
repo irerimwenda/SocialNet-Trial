@@ -9,10 +9,19 @@ export const store = new Vuex.Store({
         notifications: []
     },
     getters: {
-        //help us return data from our state
+        //mthods/functions that help us return data from our state
+        all_notifications(state) {
+            return state.notifications
+        },
+        all_notifications_count(state) {
+            return state.notifications.length
+        }
     },
     mutations: {
         //help/(only thing) that will change state of our application
+        add_notification(state, notification) {
+            state.notifications.push(notification)
+        }
     },
     actions: {
         //call mutations (we can call many mutations at a time)

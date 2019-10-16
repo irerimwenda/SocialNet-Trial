@@ -1936,13 +1936,18 @@ __webpack_require__.r(__webpack_exports__);
   props: ['id'],
   methods: {
     listen: function listen() {
+      var _this = this;
+
       Echo["private"]('App.User.' + this.id).notification(function (notification) {
         //alert('new notification')
         new noty__WEBPACK_IMPORTED_MODULE_0___default.a({
           type: 'success',
           layout: 'topRight',
           text: notification.name + notification.message
-        }).show(); //console.log(notification)
+        }).show();
+
+        _this.$store.commit('add_notification', notification); //console.log(notification)
+
 
         document.getElementById("noty_audio").play();
       });
@@ -1978,9 +1983,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getUnread: function getUnread() {
+      var _this = this;
+
       axios.get('/get-unread').then(function (notifications) {
-        console.log(notifications);
+        //console.log(notifications)
+        notifications.data.forEach(function (notification) {
+          _this.$store.commit('add_notification', notification);
+        });
       })["catch"]();
+    }
+  },
+  computed: {
+    all_notifications_count: function all_notifications_count() {
+      return this.$store.getters.all_notifications_count;
     }
   }
 });
@@ -50341,21 +50356,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "" } }, [
-        _vm._v("\n        | Unread notifications\n        "),
-        _c("span", { staticClass: "badge badge-secondary" }, [_vm._v("7")])
+  return _c("li", [
+    _c("a", { attrs: { href: "" } }, [
+      _vm._v("\n        | Unread notifications\n        "),
+      _c("span", { staticClass: "badge badge-secondary" }, [
+        _vm._v(_vm._s(_vm.all_notifications_count))
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -63858,9 +63868,20 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     //data from our application
     notifications: []
   },
-  getters: {//help us return data from our state
+  getters: {
+    //mthods/functions that help us return data from our state
+    all_notifications: function all_notifications(state) {
+      return state.notifications;
+    },
+    all_notifications_count: function all_notifications_count(state) {
+      return state.notifications.length;
+    }
   },
-  mutations: {//help/(only thing) that will change state of our application
+  mutations: {
+    //help/(only thing) that will change state of our application
+    add_notification: function add_notification(state, notification) {
+      state.notifications.push(notification);
+    }
   },
   actions: {//call mutations (we can call many mutations at a time)
   }

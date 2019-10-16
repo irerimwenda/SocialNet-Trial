@@ -23,6 +23,9 @@ export default {
                         layout: 'topRight',
                         text: notification.name + notification.message
                     }).show();
+
+                    this.$store.commit('add_notification', notification)
+
                     //console.log(notification)
                     document.getElementById("noty_audio").play()
                 })
