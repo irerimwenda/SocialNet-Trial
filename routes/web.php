@@ -90,4 +90,8 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'HomeController@notifications'
     ])->name('notifications');
 
+    Route::post('/create/post', [
+        'uses' => 'PostController@store'
+    ])->name('create-post');
+
 });

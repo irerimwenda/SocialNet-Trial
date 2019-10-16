@@ -1966,6 +1966,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
+/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(noty__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1987,10 +1989,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {},
   data: function data() {
-    return {};
+    return {
+      content: '',
+      not_working: true
+    };
+  },
+  methods: {
+    createPost: function createPost() {
+      var _this = this;
+
+      axios.post('/create/post', {
+        content: this.content
+      }).then(function (response) {
+        _this.content = '';
+        new noty__WEBPACK_IMPORTED_MODULE_0___default.a({
+          type: 'success',
+          layout: 'topRight',
+          text: 'Post has been published'
+        }).show();
+        console.log(response);
+      })["catch"]();
+    }
+  },
+  watch: {
+    content: function content() {
+      if (this.content.length > 0) this.not_working = false;else this.not_working = true;
+    }
   }
 });
 
@@ -50395,41 +50425,55 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-body" }, [
-              _c("textarea", {
-                staticClass: "form-control",
-                attrs: { rows: "5" }
-              }),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn btn-success btn-sm pull-right" },
-                [
-                  _vm._v(
-                    "\r\n                        Create Post\r\n                    "
-                  )
-                ]
-              )
-            ])
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.content,
+                  expression: "content"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { rows: "5" },
+              domProps: { value: _vm.content },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.content = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-success btn-sm pull-right",
+                attrs: { disabled: _vm.not_working },
+                on: { click: _vm.createPost }
+              },
+              [
+                _vm._v(
+                  "\r\n                        Create Post\r\n                    "
+                )
+              ]
+            )
           ])
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
