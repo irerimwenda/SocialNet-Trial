@@ -16,20 +16,8 @@
                                     <span class="username pb-0">{{post.user.name}}</span>
                                     <p class="feed-p pt-0">{{post.content}}</p>
 
-                                    <div class="interact">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <a><i class="fa fa-heart-o"></i> 1</a>
-                                                <a><i class="fa fa-comment-o pl-3"></i> 1</a>
-                                                <a><i class="fa fa-tumbs-up pl-3"></i> 1</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="likes pt-2">
-                                        <img :src="post.user.avatar" alt="" class="like-avatars">
-                                        <img :src="post.user.avatar" alt="" class="like-avatars">
-                                        <img :src="post.user.avatar" alt="" class="like-avatars">
-                                    </div>
+                                    <like :id="post.id"></like>
+
                                     <hr>
                                 </div>
 
@@ -51,9 +39,14 @@
 
 
 <script>
+import Like from './Like.vue'
+
 export default {
     mounted() {
         this.getFeed();
+    },
+    components: {
+        Like
     },
     methods: {
         getFeed() {
