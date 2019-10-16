@@ -94,4 +94,8 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'PostController@store'
     ])->name('create-post');
 
+    Route::get('/feed', [
+        'uses' => 'FeedsController@feed'
+    ])->name('live-feed ');
+
 });

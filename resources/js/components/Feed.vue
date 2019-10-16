@@ -23,9 +23,17 @@
 <script>
 export default {
     mounted() {
-        axios.get('')
-        .then()
-        .catch()
+        this.getFeed();
+    },
+    methods: {
+        getFeed() {
+            axios.get('/feed')
+            .then((response) => {
+                response.data.forEach((post) => {
+                    this.$store.commit('add_post', post)
+                });
+            })
+        }
     }
 }
 </script>

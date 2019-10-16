@@ -1862,7 +1862,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    axios.get('').then()["catch"]();
+    this.getFeed();
+  },
+  methods: {
+    getFeed: function getFeed() {
+      var _this = this;
+
+      axios.get('/feed').then(function (response) {
+        response.data.forEach(function (post) {
+          _this.$store.commit('add_post', post);
+        });
+      });
+    }
   }
 });
 
@@ -64233,7 +64244,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     //data from our application
-    notifications: []
+    notifications: [],
+    posts: []
   },
   getters: {
     //mthods/functions that help us return data from our state
@@ -64248,6 +64260,9 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     //help/(only thing) that will change state of our application
     add_notification: function add_notification(state, notification) {
       state.notifications.push(notification);
+    },
+    add_post: function add_post(state, post) {
+      state.posts.push(post);
     }
   },
   actions: {//call mutations (we can call many mutations at a time)

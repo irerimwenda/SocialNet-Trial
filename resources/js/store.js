@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
     state: {
         //data from our application
-        notifications: []
+        notifications: [],
+        posts: []
     },
     getters: {
         //mthods/functions that help us return data from our state
@@ -21,6 +22,9 @@ export const store = new Vuex.Store({
         //help/(only thing) that will change state of our application
         add_notification(state, notification) {
             state.notifications.push(notification)
+        },
+        add_post(state, post) {
+            state.posts.push(post)
         }
     },
     actions: {

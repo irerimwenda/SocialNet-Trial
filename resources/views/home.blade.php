@@ -2,5 +2,6 @@
 
 @section('content')
 <post-component></post-component>
+
 <feed-component></feed-component>
 @endsection
