@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('friend-component', require('./components/Friend.vue').default);
 Vue.component('notification-component', require('./components/Notifications.vue').default);
+Vue.component('unread-notification-component', require('./components/UnreadNotifications.vue').default);
 
 import { store } from './store'
 

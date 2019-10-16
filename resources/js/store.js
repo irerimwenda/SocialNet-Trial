@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
     state: {
         //data from our application
+        notifications: []
     },
     getters: {
         //help us return data from our state
