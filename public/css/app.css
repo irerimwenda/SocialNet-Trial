@@ -10950,15 +10950,25 @@ a.text-dark:focus {
 }
 
 .username {
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: 800;
+  font-size: 14px;
   font-family: "Nunito", sans-serif;
-  color: #636b6f;
+  color: #202122;
+}
+
+.feed-p {
+  color: #87888a;
 }
 
 .hr-line {
   border: 0.2px #87888a solid;
   margin: 0;
   padding: 0;
+}
+
+.user-avatar {
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
 }
 

@@ -1873,6 +1873,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getFeed();
@@ -50407,17 +50408,26 @@ var render = function() {
               { staticClass: "col-md-12" },
               _vm._l(_vm.posts, function(post) {
                 return _c("div", { key: post.id, staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-1" }),
+                  _c("div", { staticClass: "col-md-1 text-center pl-0 pr-0" }, [
+                    _c("img", {
+                      staticClass: "user-avatar",
+                      attrs: { src: post.user.avatar }
+                    })
+                  ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-md-9" }, [
-                    _c("h6", { staticClass: "username" }, [
+                  _c("div", { staticClass: "col-md-9 pl-4" }, [
+                    _c("span", { staticClass: "username pb-0" }, [
                       _vm._v(_vm._s(post.user.name))
                     ]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(post.content))])
+                    _c("p", { staticClass: "feed-p pt-0" }, [
+                      _vm._v(_vm._s(post.content))
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-md-2" }),
+                  _c("div", { staticClass: "col-md-2" }, [
+                    _c("span", [_vm._v(_vm._s(post.created_at))])
+                  ]),
                   _vm._v(" "),
                   _c("hr", { staticClass: "hr-line" })
                 ])

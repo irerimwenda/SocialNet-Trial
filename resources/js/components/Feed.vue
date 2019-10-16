@@ -6,19 +6,20 @@
                     <div class="card-body">
                         <div class="col-md-12">
                             <div class="row" v-for="post in posts" :key="post.id">
-                                <div class="col-md-1">
+                                <div class="col-md-1 text-center pl-0 pr-0">
                                     <!--image -->
+                                    <img :src="post.user.avatar" class="user-avatar">
                                 </div>
 
-                                <div class="col-md-9">
+                                <div class="col-md-9 pl-4">
                                     <!-- post -->
-                                    <h6 class="username">{{post.user.name}}</h6>
-                                    <p>{{post.content}}</p>
+                                    <span class="username pb-0">{{post.user.name}}</span>
+                                    <p class="feed-p pt-0">{{post.content}}</p>
                                 </div>
 
                                 <div class="col-md-2">
                                     <!-- time -->
-
+                                    <span>{{post.created_at}}</span>
                                 </div>
 
                                 <hr class="hr-line">                          
