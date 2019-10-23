@@ -25,6 +25,25 @@ export default {
     },
     props: ['id'],
     computed: {
+        likes() {
+            var likers = []
+
+            this.post.likes.forEach((like) => {
+                likers.push(like.user.id)
+            })
+
+            return likers
+        },
+        authUserLikesPost() {
+            var checkIndex = this.likers.indexOf(
+                this.$store.state.auth_user.id
+            )
+
+            if(checkIndex === -1)
+                return false
+            else
+                return true
+        },
         post() {
             return this.$store.state.posts.find((post) => {
                 return post.id === this.id

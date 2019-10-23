@@ -10978,3 +10978,12 @@ a.text-dark:focus {
   border-radius: 50%;
 }
 
+.people-you-know-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #e8ecec;
+  padding: 5px;
+}
+

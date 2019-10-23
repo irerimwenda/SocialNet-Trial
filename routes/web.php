@@ -102,4 +102,9 @@ Route::group(['middleware' => 'auth'], function() {
         return Auth::user();
     });
 
+    Route::get('/new-friends', [
+        'uses' => 'FriendsController@newFriends'
+    ])->name('new-friends');
+
 });
+

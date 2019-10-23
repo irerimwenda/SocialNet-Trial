@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Notifications\NewFriendRequest;
 use App\Notifications\FriendRequestAccepted;
 use Auth;
+use DB;
 
 use App\User;
 
@@ -50,5 +51,12 @@ class FriendsController extends Controller
         User::find($id)->notify(new FriendRequestAccepted(Auth::user()));
 
         return $response;
+    }
+
+    //Get New Friends
+    public function newFriends() {
+        $friends = DB::table('users')->where('id', '!=', Auth::user()->friends())->where('id', '!=', Auth::id())->get();
+
+        return $friends;
     }
 }

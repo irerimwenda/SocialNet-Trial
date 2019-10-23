@@ -36,7 +36,8 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @if(Auth::check())
-                            <li><a href="{{ route('my-profile', ['slug' => Auth::user()->slug ]) }}"><i class="fa fa-user"></i> My Profile</a></li>
+                            <li class="pr-1"><a href="{{ route('my-profile', ['slug' => Auth::user()->slug ]) }}"><i class="fa fa-user"></i> My Profile</a></li>
+                            <li><a href="{{ route('home') }}">| <i class="fa fa-twitter"></i> Feed</a></li> 
                         @endif()
                     </ul>
 

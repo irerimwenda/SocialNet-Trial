@@ -19,7 +19,11 @@
                 <br/>
 
                 <p class="text-center">
+                    @if($user->profile)
                     {{ $user->profile->location }}
+                    @else
+                    <i>--No Location--</i>
+                    @endif
                 </p>
 
                 <p class="text-center">
@@ -54,7 +58,11 @@
             </div>
             <div class="card-body">
                 <p class="text-center">
+                    @if($user->profile)
                     {{ $user->profile->about }}
+                    @else
+                    <i>--No Caption--</i>
+                    @endif
                 </p>
             </div>
         </div>

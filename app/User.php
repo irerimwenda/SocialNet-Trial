@@ -41,6 +41,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public $with = ['profile'];
 
     public function profile() {
         return $this->hasOne('App\Profile');
