@@ -17,7 +17,8 @@
                             <span v-if="friend.profile">{{friend.profile.about}}</span>
                             <span v-else><i>--No Description--</i></span>
                             <br/>
-                            <a href="http://" class="btn btn-sm btn-light mt-2">+ Friend</a>
+                            <Friend
+                            :profile_user_id="friend.id"></Friend>
                         </div>
                     </div>
                     <hr>
@@ -30,9 +31,14 @@
 </template>
 
 <script>
+import Friend from './Friend.vue'
+
 export default {
     mounted() {
         this.getNewFriends();
+    },
+    components: {
+        Friend
     },
     data() {
         return {

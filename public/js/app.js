@@ -1916,6 +1916,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Friend_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Friend.vue */ "./resources/js/components/Friend.vue");
 //
 //
 //
@@ -1947,9 +1948,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getNewFriends();
+  },
+  components: {
+    Friend: _Friend_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
@@ -50653,28 +50659,26 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-9" }, [
-                    _c("a", { attrs: { href: /profile/ + friend.slug } }, [
-                      _c("span", [_vm._v(_vm._s(friend.name))])
-                    ]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    friend.profile
-                      ? _c("span", [_vm._v(_vm._s(friend.profile.about))])
-                      : _c("span", [_c("i", [_vm._v("--No Description--")])]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-sm btn-light mt-2",
-                        attrs: { href: "http://" }
-                      },
-                      [_vm._v("+ Friend")]
-                    )
-                  ])
+                  _c(
+                    "div",
+                    { staticClass: "col-sm-9" },
+                    [
+                      _c("a", { attrs: { href: /profile/ + friend.slug } }, [
+                        _c("span", [_vm._v(_vm._s(friend.name))])
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      friend.profile
+                        ? _c("span", [_vm._v(_vm._s(friend.profile.about))])
+                        : _c("span", [_c("i", [_vm._v("--No Description--")])]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("Friend", { attrs: { profile_user_id: friend.id } })
+                    ],
+                    1
+                  )
                 ]),
                 _vm._v(" "),
                 _c("hr")
